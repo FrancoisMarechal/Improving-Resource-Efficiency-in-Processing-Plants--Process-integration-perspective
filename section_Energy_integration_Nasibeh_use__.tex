@@ -19,7 +19,48 @@ things_{bad}\ge necessary\,\, level \cup unnecessary \, level
 
 \subsection{Caste study I: Energy integration technologies}
 
-The process heat transfer requirement for a real chemical site is defined using multi-level data extraction approach of \cite{Pouransari_2014_2}.  This multi-level data extraction scheme represented in \cref{fig1:mer} includes five levels of growing complexity: \textit{black-box, grey-box, white-box, simple-model} and \textit{detailed-model analysis}. Each level includes the heat transfer requirement with different exergy contentThe main idea of this approach is to overcome the difficulties of data gathering in large scale plants or industrial clusters by defining the energy requirement from different data collection sources including energy conversion, distribution or process units .  
+The process heat transfer requirement for a real chemical site is defined using multi-level data extraction approach of \cite{Pouransari_2014_2}. This multi-level data extraction scheme represented in \cref{tab2:table0} includes five levels of growing complexity: \textit{black-box, grey-box, white-box, simple-model} and \textit{detailed-model analysis}. Each level includes the heat transfer requirement with different exergy content. The main idea of this approach is to overcome the difficulties of data gathering in large scale plants or industrial clusters by defining the energy requirement from different data collection sources including energy conversion, distribution or process units.
+
+\begin{table*}[h] 
+\caption{Multi-Level data extraction \cite{Pouransari_2014_2}}
+\label{tab2:table0} \vspace*{-2mm}
+\begin{center}
+\resizebox{\textwidth}{!}
+{
+$\rotatebox[origin=t]{270}{\textbf{Top-Down analysis}}%
+%LEFTARROW--------------------------------------------------
+\hspace{0.3cm}\raisebox{-2.5cm}{\begin{tikzpicture}[>=latex]
+\draw[<-,black,line width=0.07cm] (0,-4.95) -- (0,0);
+\end{tikzpicture}}
+%LEFTARROW--------------------------------------------------
+%\left\downarrow% Use `\left.` if don't want arrow on this side.
+\resizebox{14cm}{!} {
+\hspace{0.3cm}\begin{tabular} { >{\centering} m{1.3cm} >{\centering}  m{1.7cm} >{\centering} m{1.7cm} >{\centering} m{1.9cm} >{\centering} m{3.8cm} >{\centering} m{3.2cm} >{\centering\arraybackslash} m{4.2cm} }
+\noalign{\hrule height 0.08cm}
+ \vspace*{1mm} {\textbf{Level}} &\vspace*{1mm} \textbf{$T$ } & \vspace*{1mm}\textbf{$\dot{Q}$} & \vspace*{1mm}\textbf{P-P HEXs } & \vspace*{1mm}\textbf{Non-Isothermal mixers \& reactors } & \vspace*{1mm}\textbf{Analysis Type } & \vspace*{1mm}\textbf{Energy requirement representation } \\ [0.1cm]
+\hline \vspace*{2mm}
+1 & \vspace*{1mm} Utility & \vspace*{1mm} Utility& \vspace*{1mm} $\boldsymbol{\timesbig}$  & \vspace*{1mm} $\boldsymbol{\timesbig}$ & \vspace*{1 mm}  \cellcolor{black} \textbf{\textcolor{white}{Black-Box}}  & \vspace*{5 mm}  Utility \\  [0.3 cm]
+& & & & & \\  [-0.35cm]
+2  &  Process & Utility& $\boldsymbol{\timesbig }$  & $\boldsymbol{\timesbig}$ & \cellcolor{bell1} \textbf{\textcolor{white}{ Grey-Box}}  & Technology, Thermodynamic   \\ [0.1cm]
+& & & & & \\  [-0.35cm]
+3  & Process & Utility & $\boldsymbol{\checkmarkbig}$ & $\boldsymbol{\timesbig}$ & \cellcolor{bell2} White-Box (Deatiled-Pinch)  & Technology, Thermodynamic    \\ [0.1cm]
+& & & & & \\  [-0.35cm]
+4  & Process & Utility & $\boldsymbol{\checkmarkbig}$ & $\boldsymbol{\checkmarkbig}$ & \cellcolor{bell3} Simple-Model  & Technology, Thermodynamic   \\ [0.1cm]
+& & & & & \\  [-0.35cm]
+5  & Process& Process & $\boldsymbol{\checkmarkbig}$ & $\boldsymbol{\checkmarkbig}$ &  Detailed-Model & Technology, Thermodynamic   \\ [0.1cm]
+\noalign{\hrule height 0.08cm}
+\end{tabular}}
+%\right\Uparrow %  Use `\right.` if don't want arrow on this side.
+%RIGHTARROW--------------------------------------------------
+\hspace*{0.3cm}\raisebox{-2.5cm}{\begin{tikzpicture}[>=latex]
+\draw[<-,black,line width=0.07cm] (0,0) -- (0,-4.95);
+\end{tikzpicture}}
+%RIGHTARROW--------------------------------------------------
+\hspace{0.3cm}\rotatebox[origin=b]{90}{\textbf{Bottom-Up analysis}}$
+}
+\end{center}
+\end{table*}
+
         \begin{figure}[h]
         \begin{center}
         \includegraphics [height=4.3cm]{Improving Resource Efficiency in Processing Plants : Process integration perspective/figures/EnergyIntegration/figMERcc.pdf} 
