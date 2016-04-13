@@ -60,7 +60,7 @@ Based on the result of the GCC and the plus-minus principle \cite{Linnhoff199350
 
 \subsection{Caste study II: Site-Scale integration}
 
-A large industrial process system can be analyzed by either \textit{Single Process Integration} (SPI) or through the \textit{Total Site Integration} (TSI). Both SPI and TSI lay on the same line in terms of approach, but in TSI the opportunity of heat recovery between the process systems is considered rather for the whole site than for each process system separately (SPI). In this case study, the SPI and TSI have been performed for the three process systems (Called as A, B and C) of a site by considering different representations for each process system. The total heat requirement of the site is considered as the basis of 100\% unit here, and all the integration analysis values are based on this reference. \cref{fig3:new} shows the repartition of the total consumption between the three process systems. It should be noticed that this 100\% unit does not define the heat consumption of the site cold streams because it considers the present heat recovery in the processes. The major consumers of each process system are identified such that 80\% of the total site consumption are considered in the analysis (Pareto principle). The remaining 20\% is therefore represented by black-box model and will not be considered for heat recovery in the analysis. 
+A large industrial process system can be analyzed by either \textit{Single Process Integration} (SPI) or through the \textit{Total Site Integration} (TSI). Both SPI and TSI lay on the same line in terms of approach, but in TSI the opportunity of heat recovery between the process systems is considered rather for the whole site than for each process system separately (SPI). In this case study, the SPI and TSI have been performed for the three process systems (Called as A, B and C) of a site by considering different representations***** for each process system. The total heat requirement of the site is considered as the basis of 100\% unit here, and all the integration analysis values are based on this reference. \cref{fig3:new} shows the repartition of the total consumption between the three process systems. It should be noticed that this 100\% unit does not define the heat consumption of the site cold streams because it considers the present heat recovery in the processes. The major consumers of each process system are identified such that 80\% of the total site consumption are considered in the analysis (Pareto principle). The remaining 20\% is therefore represented by black-box model and will not be considered for heat recovery in the analysis. 
 
 \begin{figure*}[!ht]
 \vspace{5mm}
@@ -71,3 +71,39 @@ A large industrial process system can be analyzed by either \textit{Single Proce
 \end{center}
 \end{figure*}
 
+The SPI is applied to each of the three process systems (\cref{fig3:III,fig3:IV,fig3:V}). The SPI analysis for the process system A is performed with a simple-model level***** of detail. 13\% of the total site consumption is explained by process system A, in which, after Pareto analysis, 11\% unit are considered in the integration analysis. The Composite Curves of this process system (\cref{fig3:III}b) show an increase for the potential of heat recovery from 2\% unit in the present situation, up to 8\% unit by integration. This means an energy saving of 62\% for the process system A, but only 7\% for the total site consumption. It should be noted that the 2\% unit heat recovery by P-P***** heat exchangers do not appear in the black-box model*****.
+
+\vspace{10pt}
+\begin{figure*}[!ht]
+\begin{center}
+\includegraphics[width=146mm]{images/ch3/fig2ab.pdf}
+\caption{Composite Curves of process system A from black-box to simple-model analysis with SPI (100\% corresponds to the present total site consumption)}
+\label{fig3:III}
+\end{center}
+\end{figure*}
+
+The same strategy is applied to the process system B, which represents 80\% of the whole consumption of the site. Since more detailed data were available from simulation model of this process system, the energy requirement analysis is using the detailed-model ****(\cref{fig3:IV}) that explains 62\% of the heat requirement after the Pareto analysis. The heat recovery potential is increased from 30 with the present heat exchangers, up to 47\% unit after integration. This corresponds to an energy saving of 17\% of the total site consumption or 19\% of process system B consumption.
+
+ 
+\begin{figure*}[!ht]
+\begin{center}
+\includegraphics[width=146mm]{images/ch3/fig3ab.pdf}
+\caption{Composite Curves of process system B from  black-box to detailed-model analysis with SPI (100\% corresponds to the present total site consumption)}
+\label{fig3:IV}
+\end{center}
+\end{figure*}
+
+Quite the opposite, the available data for process system C, which represents 7\% of the whole site heat consumption, is limited to the energy bill. It is therefore represented by the  black-box model***** (\cref{fig3:V}) and remains at the utility representation level**** ****.\footnote{This is another practical instance of how our multi-level data gathering procedure can come helpful to tune the analysis level of detail with respect to the available data} 
+ 
+\vspace{10pt}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=80mm]{images/ch3/fig4.pdf}
+\caption{Composite Curves of process system C with black-box analysis (100\% corresponds to the present total site consumption)}
+\label{fig3:V}
+\end{center}
+\end{figure}
+
+ Summing up the possible energy savings for the three process systems by SPI shows an additional heat recovery potential of 23\% unit. \cref{fig3:new} gives the detail of SPI analysis of the three process systems.
+ 
+ 
