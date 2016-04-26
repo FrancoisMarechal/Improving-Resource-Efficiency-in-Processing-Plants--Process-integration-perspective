@@ -26,3 +26,25 @@ Where the annualisation factor is based on the lifetime of the project and the i
 \begin{equation}\label{eq:DTminamort}
 F_a=\left(\frac{i(1+i)^n}{(1+i)^n-1}\right)
 \end{equation}
+
+The area required for heat exchange is
+
+\begin{equation}\label{eq:DTminarea}
+A_{ex}=\frac{\dot Q_{ex}}{U_{ex}\Delta T_{lm}}
+\end{equation}
+
+\begin{equation}\label{eq:DTminq1}
+\dot Q^+=\dot Q_{cold}-\dot Q_{ex}
+\end{equation}
+
+\begin{equation}\label{eq:DTminq2}
+\dot Q^-=\dot Q_{hot}-\dot Q_{ex}
+\end{equation}
+
+\begin{equation}\label{eq:DTmintc}
+T_{cold,out}=\frac{\dot Q_{ex}}{\dot M_{cold}C_{p_{cold}}}
+\end{equation}
+
+\begin{equation}\label{eq:DTminth}
+T_{hot,out}=T_{cold,in}+\Delta T_{min}
+\end{equation}
