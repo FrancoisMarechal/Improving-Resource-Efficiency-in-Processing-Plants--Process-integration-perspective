@@ -38,7 +38,7 @@ Where the heat exchange coefficient, $U_{ex}$ must be calculated for the specifi
 \Delta T_{lm}= \frac{(T_{hot,in}-T_{cold,out})-(T_{hot,out}-T_{cold,in})}{\ln\left(\frac{(T_{hot,in}-T_{cold,out})}{(T_{hot,out}-T_{cold,in})}\right)}
 \end{equation}
 
-The transfer of energy required from a hot or cold utility 
+The transfer of energy required from a hot or cold utility can be defined using Equations \ref{eq:DTminq1} and \ref{eq:DTminq2}, respectively. These two equations are descriptive of the load difference required to heat a cold stream or cool a hot stream after considering the exchange of heat between the hot and cold stream. These are directly related to the operating cost portion of the objective function.
 
 \begin{equation}\label{eq:DTminq1}
 \dot Q^+=\dot Q_{cold}-\dot Q_{ex}
@@ -47,6 +47,8 @@ The transfer of energy required from a hot or cold utility
 \begin{equation}\label{eq:DTminq2}
 \dot Q^-=\dot Q_{hot}-\dot Q_{ex}
 \end{equation}
+
+The temperatures of the hot and cold streams must then be defined relative to the amount of heat exchange occurring. 
 
 \begin{equation}\label{eq:DTmintc}
 T_{cold,out}=\frac{\dot Q_{ex}}{\dot M_{cold}C_{p_{cold}}}
