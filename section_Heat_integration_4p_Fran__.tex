@@ -20,21 +20,25 @@ Where the heat loads $\dot Q_{hot},\, \dot Q_{cold}, \, \text{and }\dot Q_{ex}$ 
 Cost_{inv}=F_a a_{ex}(A_{ex})^{b_{ex}}
 \end{equation}
 
-Where the annualisation factor is based on the lifetime of the project in years, $n$, and the interest rate, $i$, associated with the investment. These are significant economic parameters and are typically decided at the level of the plant operation, project assessment team or other economic roles within an indutry. The factor can be calculated for any combination of these parameters as shown in \ref{eq:DTminamort} and can play a major role in determining the $\Delta T_{min}$.
+Where $a_{ex}$ and $b_{ex}$ are economic parameters found in literature. The annualisation factor, $F_a$ is based on the lifetime of the project in years, $n$, and the interest rate, $i$, associated with the investment. These are significant economic parameters and are typically decided at the level of the plant operation, project assessment team or other economic roles within an industry. The factor can be calculated for any combination of these parameters as shown in \ref{eq:DTminamort} and can play a major role in determining the $\Delta T_{min}$; thus, these economic parameters must be known before conducting the analysis to ensure that the solutions are indeed economically feasible.
 
 \begin{equation}\label{eq:DTminamort}
 F_a=\left(\frac{i(1+i)^n}{(1+i)^n-1}\right)
 \end{equation}
 
-The area required for heat exchange is
+The total area required for heat exchange, $A_{ex}$, is based on heat transfer principles and described in Equation \ref{eq:DTminarea}.
 
 \begin{equation}\label{eq:DTminarea}
 A_{ex}=\frac{\dot Q_{ex}}{U_{ex}\Delta T_{lm}}
 \end{equation}
 
+Where the heat exchange coefficient, $U_{ex}$ must be calculated for the specific case of the heat exchange depending on the fluids involved. The term $\Delta T_{lm}$ is the logarithmic mean of the temperature difference between the fluids in the in exchanger. It is related to the inlet and outlet temperatures of the hot and cold fluids according to the mathematical relation shown by Equation \ref{eq:DTmintlm}.
+
 \begin{equation}\label{eq:DTmintlm}
 \Delta T_{lm}= \frac{(T_{hot,in}-T_{cold,out})-(T_{hot,out}-T_{cold,in})}{\ln\left(\frac{(T_{hot,in}-T_{cold,out})}{(T_{hot,out}-T_{cold,in})}\right)}
 \end{equation}
+
+The transfer of energy required from a hot or cold utility 
 
 \begin{equation}\label{eq:DTminq1}
 \dot Q^+=\dot Q_{cold}-\dot Q_{ex}
