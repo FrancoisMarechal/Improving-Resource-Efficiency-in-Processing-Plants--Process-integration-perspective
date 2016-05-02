@@ -80,3 +80,42 @@ The process can be separated at the pinch point to be a heat sink above the pinc
 Another representation of the process is known as the grand composite curve (GCC) which is constructed as the horizontal distance between the hot and cold composite curves. This representation is equally representative of the process but is much more helpful when targeting the appropriate utilities to be used to fulfill the process requirements as the temperature levels and requirements can be more clearly seen. The GCC shows the pinch point where the curve touches the y-axis and shows the minimum hot and cold utility requirements as the horizontal distance between the y-axis and the extremities of the GCC. The supply of utilities can then be decided in order to fulfill the utility requirements utilising the most economical utilities for the required temperature levels. This analysis is based on economics of utility integration where higher temperature hot utilities are more costly than lower temperature ones and low temperature utilities such as refrigeration are more expensive than water- or air-cooling systems. The temperature levels of the available utilities can be plotted on the GCC to determine the most economical utility placements such that the process needs are satisfied.
 
 \subsection{Heat recovery and the heat cascade}\label{sec:cascade}
+
+\begin{equation}
+F_{obj} = min (d \cdot (\sum_{f=1}^{nf} (c_{f}^+  \sum_{u=1}^{nu} \boldsymbol{f_u} \dot{E}_{f,u}^+) + c_{el}^{+} \boldsymbol{\dot{E}_{el}^+} - c_{el}^{-} \boldsymbol{\dot{E}_{el}^-} +  \sum_{u=1}^{nu} \boldsymbol {f_u} c_{u} )) 
+\label{eq:min-heat-cascade}
+\end{equation}
+Equation (\ref{eq:elec-cons}) states that the total electricity import and the electricity produced by the process have to be greater or equal to the process electricity consumption. The overall electricity balance is given by Equation (\ref{eq:elec-exp}). Both equations are necessary to distinguish the price for electricity import and export.     
+\begin{equation}
+\label{eq:elec-cons}
+\sum_{u=1}^{nu} \boldsymbol {f_{u}} \dot{E}_{el,u}^+ + \boldsymbol {\dot{E}_{el}^+} - \sum_{u=1}^{nu} \boldsymbol {f_{u}} \dot{E}_{el,u}^- \geq 0
+\end{equation}
+\begin{equation}
+\label{eq:elec-exp}
+\sum_{u=1}^{nu} \boldsymbol {f_{u}} \dot{E}_{el,u}^+ + \boldsymbol {\dot{E}_{el}^+} - \boldsymbol {\dot{E}_{el}^-} - \sum_{u=1}^{nu} \boldsymbol {f_{u}} \dot{E}_{el,u}^- = 0
+\end{equation}
+The corresponding thermodynamical feasibility is ensured by Equation (\ref{eq:elec-constraints}). 
+\begin{equation}
+\label{eq:elec-constraints}
+\boldsymbol {\dot{E}_{el}^+}  \geq 0 ~~~~~~~~~ \boldsymbol {\dot{E}_{el}^-} \geq 0
+\end{equation}
+For the electricity cost, $c_{el}^+$ is the purchase cost and $c_{el}^-$ is the selling price. $c_{f}^+$ is the fuel price. $\dot{E}_{f,u}^+$ is the nominal energy (or heating value) delivered to unit $u$ by the fuel (e.g. natural gas) and $\dot{E}_{el,u}$ is the nominal electricity demand $^{(+)}$ or excess $^{(-)}$ of unit $u$. $c_u$ is the nominal operating cost per hour of unit $u$ (excluding the fuel and electricity costs of unit $u$). A typical example of $c_u$ is the nominal operating costs corresponding to a water consumption for cooling. Thus, the objective function not only includes the fuel and electricity costs, but also a cooling water consumption or even the possibility of selling heat surpluses, by defining a utility unit with a negative nominal operating cost $c_u$ for a nominal heat surplus at a given temperature. Furthermore, maintenance of fixed operating costs can also be added in the objective function.
+
+In the heat integration model, each process unit, being process or utility unit, is defined with its nominal conditions and requirements. A multiplication factor $\boldsymbol {f_u}$ represents the usage rate of unit $u$. 
+When it is a process unit the flow-rate is fixed ($\boldsymbol {f_u} =1$), whereas if it is a utility unit, the flow-rate is variable in a certain range. Thus, each utility unit is defined by a minimal and a maximal multiplication factor ($f_{u}^{min}$ and $f_{u}^{max}$), fixing the lower and the upper bound of the heat load range. Moreover, the associated integer variable $\boldsymbol {y_{u}}$ defines if the utility unit $u$ is added to process ($\boldsymbol {y_{u}} = 1$) or not ($\boldsymbol {y_{u} }= 0$).
+\begin{equation}
+\label{eq:mult-max}
+\boldsymbol {y_{u}} \cdot f_{u}^{min} \leq \boldsymbol {f_{u}} \leq \boldsymbol {y_{u}} \cdot f_{u}^{max} 
+\end{equation}
+If necessary, nominal fuel, electricity consumption or electricity surplus  (e.g. for heat pumps or steam network) and additional nominal operating costs (e.g. for cooling water) of the corresponding nominal thermal streams can be defined. In the process integration step, the multiplication factors are optimized and the necessary flow-rates, fuel and electricity consumption and additional operating costs for the utility units are calculated. 
+
+Without considering heat exchange restrictions, the general heat cascade for each temperature interval k in the corrected temperature domain is given by Equation (\ref{eq:heat-cascade}), where $\dot{Q}_{h/c,k,u}$ is the nominal heat load of hot or cold stream $h$/$c$ in temperature interval $k$ and belonging to unit $u$. $\boldsymbol {\dot{R}_k}$ is the cascaded heat from the temperature interval $k$ to the lower temperature intervals. 
+\begin{equation}
+ \label{eq:heat-cascade}
+\sum_{h_k=1}^{ns_{h,k}}{\boldsymbol {f_u} \dot{Q}_{h,k,u}} - \sum_{c_k=1}^{ns_{c,k}}{\boldsymbol {f_u} \dot{Q}_{c,k,u} } +\boldsymbol {\dot{R}_{k+1}}  -\boldsymbol {\dot{R}_{k}}   = 0
+~~~\forall k=1...,nk
+\end{equation}
+\begin{equation}
+\label{eq:Rk-constraints}
+\boldsymbol {\dot{R}_{1}} = 0 ~~~ \boldsymbol {\dot{R}_{nk+1}}=0 ~~~~~~~~ \boldsymbol {\dot{R}_{k}} \geq 0 ~~~\forall k=2...,nk
+\end{equation}
