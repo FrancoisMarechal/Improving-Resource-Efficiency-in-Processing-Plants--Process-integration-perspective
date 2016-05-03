@@ -69,3 +69,166 @@ There might be some engineering constraints and physical limits concerning the m
 Apart from securing the optimum solution with respect to the operating cost, the systematic alteration of the heat transfer unit of the energy requirements from one representation to another also leads to a new target retrofit solution. Switching among representations, however, involves the expenses to have the heat exchangers modified. In order to design the proposed retrofit solution, the cost of each modification has to be evaluated. Hence, earlier at the level of targeting, it would be helpful to have an estimation of the units which have to be changed for the optimum retrofit design with respect to both operating and investment cost. For this purpose, a multi-objective optimization with evolutionary algorithm \cite{Molyneaux2010751} is performed by considering both operating and investment cost as targets which would give the optimal Pareto-frontier of solutions. Pareto analysis is practical in our case to identify and characterize interesting regions of the solution space of the trade-off between objectives instead of a single optimal point. Generating a range of $good$ $solutions$ will provide the decision maker options to choose a qualitative solution among the regions returned by the algorithm. Notice that each of these options is identical in terms of the energy balance between the hot and the cold requirement in spite of their different operating and investment costs. The investment cost of the heat exchanger modification is estimated by associating the area of the heat exchanger to its hot and cold stream (\cref{EQ6:equ15}). In order to forward the optimization towards the solutions with less required modification, a systematic weight factor is assigned to each representation to promote the utilization of existing facilities (\cref{EQ6:equ22}). In addition, a pseudo thermal exergy destruction is calculated as an indicator to compare different solutions. 
 
 \subsection{Caste study III: Industrial cluster integration and optimization}
+
+The proposed approach has been applied on a large-scale industrial site with three process systems\footnote{Called as A, B and C}. The total site has 141 process units, including 172 streams. 
+
+As the first step, the heat cascade is solved and the minimum energy requirement (MER) is calculated by defining the requirements with the most available detailed representation. \cref{fig6:mer} shows that the heat recovery potential can be enhanced from 28\% in the current situation to 52\% of the total heat requirement by integration. Using the MILP formulation proposed by \citet{marechal1998process} the heat cascade is solved, suitable energy conversion units are integrated and combined heat and power production is maximized by minimizing the operating cost. This method selects the equipment in the superstructure and determines their optimal operating flow rate in the integrated system. The price for different forms of energy influences the choice of the appropriate technology and its level of usage in the integrated solution. 
+
+\begin{figure*}[!ht]
+\vspace{2mm}
+\centering
+\includegraphics[width=150mm]{images/ch6/MER.pdf} 
+\caption{Site Composite and Grand Composite Curves with unique representation of energy requirement}
+\label{fig6:mer}
+\end{figure*}
+\vspace{5mm}
+
+
+\cref{fig6:MILP1st} shows the result of the site utility integration and optimization, for two scenarios. The scenario I include boiler, steam network with steam turbine and refrigeration cycle (\cref{fig6:MILP1st}a), and scenario II has a cogeneration system with gas turbine in addition to them (\cref{fig6:MILP1st}b). Here, the ratio of gas price to the electricity is supposed to be 0.4. Moreover, the capacity of the cogeneration unit is optimized to produce equivalent heat to the MER of the system. As a result, the electricity that is produced by the cogeneration unit, comes only from the excess exergy content of the necessary required gas that satisfies MER. The finalized solutions are then evaluated based on the operating and HEN investment cost and are also compared to the current situation of the plant. The summary of the analysis is presented in \cref{tab6:one}. The reported relative balanced electricity is the ratio of the system balanced electricity (electricity production minus consumption) over the equivalent  kW of current natural gas consumption. The presented thermal exergy destruction is also the relative value with respect to the same term. The relative annualized investment cost is the ratio of the investment cost for each scenario, over the current operating cost. The extended MILP formulation is solved for scenario I and II with all available heat transfer units of each energy requirement to find the minimum operating cost (\cref{fig6:MILP2nd}). 
+
+
+ \begin{figure}[!ht]
+ \vspace{2mm}
+ \begin{center}
+ \includegraphics[width=70mm]{images/ch6/MILP1stCH3.pdf}\quad
+ \includegraphics[width=70mm]{images/ch6/MILP1stCH4.pdf} 
+ \caption{Energy conversion units integration and optimization with unique representation for scenario I (a) and II (b)} 
+ \label{fig6:MILP1st}
+ \end{center}
+ \end{figure}
+
+\begin{table}[!ht]
+  \caption{Summary of the optimized site utility integration}
+     \label{tab6:one} 
+  \centering
+\resizebox{14.5cm}{!} {
+\begin{tabular} {m{7.6cm} >{\centering\arraybackslash}  m{1.3cm} >{\centering\arraybackslash} m{2.1cm} >{\centering\arraybackslash}  m{2.2cm} >{\centering\arraybackslash}  m{2.1cm} >{\centering\arraybackslash} m{2.2cm} >{\centering}  *{6}{c}}
+\noalign{\hrule height 0.06cm}
+\noalign{\smallskip}
+ {} & \textbf{Current site }& \textbf{Scenario I unique.rep} & \textbf{Scenario II unique.rep} & \textbf{Scenario I mult.rep} & \textbf{Scenario II mult.rep}\\ [0.1cm]
+\hline \vspace*{2mm}
+\textbf{Relative Natural Gas [\%]}  & \vspace*{2mm} 100 & \vspace*{2mm} 65 & \vspace*{2mm} 103 & \vspace*{2mm} 64 & \vspace*{2mm} 103  \\ 
+\textbf{Relative balanced electricity [\%]}  & 0& 12 & 35& 12 & 35\\ 
+\textbf{Relative thermal exergy destruction [\%]}  & - & 21 & 15 & 21 & 14\\ 
+\textbf{Energy saving [\%]}  & 0  & 43 & 45 & 44 & 45 \\
+\textbf{Relative Operating cost [\%]}  & 100  & 49 & 33 & 48 & 32  \\ 
+\textbf{Relative Annualized Investment [\%]}  & 0  & 4.4 & 2.6 & 4.1 & 2.6  \\
+\textbf{Relative Total cost [\%]}  & 100 & 54 & 36 & 52 & 35\\ 
+\noalign{\hrule height 0.06cm} 
+\end{tabular}}
+\vspace{6mm}
+        \end{table}
+ 
+ The summary of the result is presented in \cref{tab6:one}. The value of reported thermal exergy destruction is the area between process and utility curves in the Carnot representation (\cref{fig6:MILP2nd}) that specifies the exergy losses in the heat transfer system \cite{marechal2005combined}. The multi-objective optimization with four objective functions of the operating cost, the investment cost, the priority and the pseudo thermal exergy destruction has been performed for the scenario I by varying the streams over different representations. 133 out of 141 units of the site, can be modified and switched from one interface to another one. The 8 others were mandatory to remain unchanged. In the existing facilities of this site, in addition to the thermodynamic and utility interfaces, there exist 9 different technology interfaces. The priority level assignment and the calculated weight factor for these interfaces are summarized in \cref{tab6:three}. As it is dissuaded, here the existing situation for all 42 units belonging to the P-P heat exchangers, the non-isothermal mixers and the hidden potential categories have been considered as a utility representation for the weight factor calculation.  
+
+ \begin{figure}[!ht]
+ \begin{center}
+ \includegraphics[width=70mm]{images/ch6/MILP2ndCH3.pdf} \quad
+ \includegraphics[width=70mm]{images/ch6/MILP2ndCH4.pdf} \
+ \caption{Energy conversion units integration and optimization with multiple representation} \vspace*{-5mm}
+ \label{fig6:MILP2nd}
+ \end{center}
+ \end{figure}
+ 
+\begin{table}[!ht] 
+  \caption{Summary of the priority levels assignment}  \vspace*{-2mm}
+     \label{tab6:three} 
+  \begin{center}
+\resizebox{10cm}{!} {
+\begin{tabular} {>{\centering\arraybackslash} m{3.5cm} >{\centering\arraybackslash}  m{3.1cm} >{\centering\arraybackslash} m{1.7cm} >{\centering\arraybackslash}  m{1.7cm} >{\centering\arraybackslash}  m{2cm } >{\centering} *{5}{c}  }
+\noalign{\hrule height 0.06cm}
+\noalign{\smallskip}
+ \textbf{Representation level (r)} & \textbf{Representation Type }& \textbf{$P_{r}$} & \textbf{$Z_{r}$} & \textbf{$W_{r}$} \\ [0.1cm]
+\hline
+\vspace*{2mm} \textbf{1}  & \vspace*{2mm} Thermodynamic & \vspace*{2mm} 1 & \vspace*{2mm} 133 & \vspace*{2mm} 1 \\ [0.1cm]
+\textbf{2}  & Technology & 2 & 7 &  1.34*$10^{2} $  \\ [0.1cm]
+\textbf{3}  & Technology & 3 & 1 & 1.07*$10^{3}$ \\ [0.1cm]
+\textbf{4}  & Technology & 4 & 1 & 2.14*$10^{3}$ \\ [0.1cm]
+\textbf{5}  & Technology & 5 & 14  & 4.29 *$10^{3}$ \\ [0.1cm]
+\textbf{6}  & Technology & 6 & 15  & 6.43*$10^{4}$ \\ [0.1cm]
+\textbf{7}  & Technology & 7 & 4  & 1.03*$10^{6}$ \\ [0.1cm]
+\textbf{8}  & Technology & 8 & 20 & 5.15*$10^{6}$ \\ [0.1cm]
+\textbf{9}  & Technology & 9 & 5  & 1.08*$10^{8}$ \\ [0.1cm]
+\textbf{10}  & Technology & 10 & 6 & 6.48*$10^{8}$ \\ [0.1cm]
+\textbf{11}  & Utility & 11 & 133  &  4.54*$10^{9}$ \\ [0.1cm]
+\noalign{\hrule height 0.06cm} 
+\end{tabular}}
+\vspace*{0mm}
+       \end{center}
+        \end{table}
+
+The Pareto analysis has been performed by selecting the optimal Pareto-frontier of all four objectives and is displayed in the 3D format with respect to the investment cost, the operating cost and the number of modifications in \cref{fig6:multiobj}a. The projection of this frontier on the respective planes gives the 2D trade-off which has been reproduced in \cref{fig6:multiobj}b and c. \cref{fig6:multiobj}b illustrates the trade-off between the operating cost and the investment cost. The point 1 is the optimum solution to the MILP optimization problem where all requirements are exclusively supposed to be of the detailed representation type and the point 2 is the optimum solution for a system allowing for the multiple representation of energy requirements with only the operating cost as objective function. Each point of this region presents a retrofit solution which includes the information concerning the heat transfer unit of each energy requirement that need to be modified. The Pareto curve analysis shows that among the solutions with the same operating cost, one can be found by the help of the multiple representation approach, which requires less investment cost compared to the results obtained by the unique representation approach. The selected solution of the above optimization problem is then the target for a reduced HEN design problem which is limited to the number of units which would require modification. \cref{fig6:multiobj}b plots the number of units that requires modification with respect to the operating cost. This curve allows the engineer to determine which and how many units are required to be modified for any target solution.
+ 
+  \begin{figure}[!ht]
+  \vspace{2mm}
+  \centering
+  \begin{tabular}{cc}
+  \multicolumn{2}{c}{ 
+  \includegraphics[width=80mm]{images/ch6/3d.pdf}
+  } \\
+  \includegraphics[height=58mm]{images/ch6/multiobja1.pdf} &
+           \includegraphics[height=58mm]{images/ch6/multiobjb.pdf}
+ \end{tabular}
+         \caption{Pareto analysis of scenario I for multiple representation of each energy requirement}    \label{fig6:multiobj} \vspace*{-2mm}
+         \end{figure}
+         \vspace{3mm}
+         
+In order to compare the value of the four objectives for each solution, the Pareto trade-off between operating cost and all the three other objectives is shown in \cref{fig6:multall}. Point A shows an example of a $good$ solution that requires 42 process unit modifications, nearly 2\% investment cost and 51\% operating cost. Although this target solution saves 3\% less than the MILP optimum Point 2, its implied number of modifications are considerably less than the 108 required modifications for the optimum point 2. Supposing that the decision maker chooses the Point A as the solution scenario, up to 91 units from the total of 133 can use the existing thermodynamic interfaces. In point A, 42 units are represented by thermodynamic, 10 by technological and 47 by utility requirement. Also 34 units out of 42 units from the P-P heat exchangers, non-isothermal mixers and hidden potential categories are eliminated from the target solution. This is the first significant information for the decision maker, that 34 units have been fully accepted as they are. Moreover, the elimination of these units reduces the number of streams from 172 to 114 which has a considerable impact on the HEN design step. For the 10 units represented by the technology requirement, the heat exchanger between process and technology flows may remain without any modification. Instead, if there is a need, it is the technology flow that will participate in the heat exchange. For the 47 units that appeared with their utility representation, neither of their thermodynamic and technology interfaces would require modification. 
+
+    \begin{figure}[!ht]
+    \vspace{2mm}
+       \begin{center}
+       \includegraphics[width=100mm]{images/ch6/multall.pdf} 
+       \caption{Pareto curve of investment cost, number of modification and pseudo thermal exergy destruction vs operating cost} \vspace*{-5mm}
+       \label{fig6:multall}
+       \end{center}
+       \vspace{4mm}
+       \end{figure}   
+
+The utility and technology representation streams can even hint at more practical information. We define $T_{hot}^{max}$ as the highest corrected temperature of the hot process streams and $T_{cold}^{min}$ as the coldest corrected temperature of the cold process stream (\cref{fig6:Tmaxmin}). If the corrected temperature of a cold stream is higher than $T_{hot}^{max}$, this stream should exchange with hot utility or heat transfer unit. It is not thus a part of the heat recovery and can be eliminated from the heat recovery network retrofit problem. The analogous argument is valid for the hot stream with higher corrected temperature than $T_{cold}^{min}$. Obviously, probability of appearance of such a stream, increases by having the possibility to switch from the thermodynamic representation to the technology or utility ones. 
+        
+                   \begin{figure}[!ht]
+                     \vspace*{2mm}
+                    \begin{center}
+                    \includegraphics[width=80mm]{images/ch6/tmaxmin.pdf} \vspace*{0mm}
+                    \caption{Analysis of streams participating in heat recovery using extreme temperatures
+                    } \vspace*{0mm}
+                    \label{fig6:Tmaxmin}
+                    \end{center}
+                    \end{figure} 
+                    
+The above mentioned analysis has been performed for the point A and the result is summarized in \cref{tab6:four}. It is shown that out of the 21 streams that are beyond the extreme temperatures, 20 of them are presented by utility or technology requirements and only 1 stream has thermodynamic representation. This result again highlights the benefit of having multiple heat transfer units for the same energy requirement rather than employing a unique one.
+
+\begin{table}[!ht] 
+ \vspace*{2mm}
+  \caption{Analysis of streams with extreme temperature for point A}  \vspace*{-2mm}
+     \label{tab6:four} 
+  \begin{center}
+\resizebox{14.7cm}{!} {
+\begin{tabular} {m{7.7 cm} >{\centering\arraybackslash}  m{3.4cm} >{\centering\arraybackslash} m{1.6cm} >{\centering\arraybackslash}  m{1.5cm} >{\centering\arraybackslash}  m{2.2cm } >{\centering\arraybackslash}  m{3.2cm } >{\centering} *{6}{c}  }
+\noalign{\hrule height 0.06cm}
+\noalign{\smallskip}
+ \textbf{Category} & \textbf{Extreme Temperature $[^{\circ}\mathrm{C}]$} &  \textbf{Number} & \textbf{Utility} & \textbf{Technology} & \textbf{Thermodynamic} \\ [0.1cm]
+\hline
+\noalign{\vskip 1mm} 
+Cold streams with higher temperature &\textbf{ $T_{hot}^{max}=196$}  &  9 & 7 & 1 & 1\\ [0.2cm]
+Hot streams with lower temperature  &\textbf{$T_{cold}^{min}=29$}  &  12 & 12 & 0 & 0\\ [0.2cm]
+Hot streams with partially lower temperature & \textbf{$T_{cold}^{min}=29$} &  21 & 18 & 0 & 3 \\ [0.1cm]
+\noalign{\vskip 1mm} 
+\noalign{\hrule height 0.06cm} 
+\end{tabular}}
+\vspace*{0mm}
+       \end{center}
+        \end{table}
+
+ Finally, these streams also can be subtracted from the stream list for HEN and reduce the 114 streams to 93 (\cref{fig6:HENanalysis}). Notice that the elimination of these streams does not affect the target objectives. There are some streams which are partially beyond the extreme temperatures (by either of the entrance or outlet temperature). In case more simplification is required, a part of these streams might also be eliminated from the model.
+
+        
+           \begin{figure}[!ht!]
+             \vspace*{2mm}
+            \begin{center}
+            \includegraphics[width=40mm]{images/ch6/HENanalysis.pdf} \vspace*{0mm}
+            \caption{Procedure of streams reduction for the HEN design model of point A} \vspace*{-5mm}
+            \label{fig6:HENanalysis}
+            \end{center}
+            \end{figure} 
