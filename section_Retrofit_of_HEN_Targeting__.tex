@@ -18,4 +18,54 @@ In summary, one energy requirement can be presented by several heat transfer uni
 %\label{fig6:triple2}
 %\end{figure*}
 
+\subsection{Optimization with unique representation}
+\label{sec:retrofitoptunique}
+In the first optimization step, the heat cascade is solved and the minimum energy requirement (MER) is calculated by defining the requirements with the most available detailed representation. The MILP model with only one representation for each energy requirement to minimize the operating cost is identical to the developments explained in \cref{Sec3:EnergyConvOpt} which we do not reproduce here for the sake of conciseness. 
+
+\subsection{Optimization with multiple representation}
+\label{sec6:multipleMILP}
+
+To identify the required modification in the retrofit problem, all available heat transfer units on the site have to be identified and introduced to the MILP model. The existing heat exchangers in the new system either remain unchanged and are accepted as they are or they have to be removed/modified as the penalizing ones, depending on their effects on the energy consumption. The penalizing heat exchangers are the ones responsible for an increase in energy consumption by either Cross-Pinch heat transfer or inappropriate heat exchange in heat source or heat sink. The Cross-Pinch exchangers are those who transfer heat across the pinch by the P-P exchange, use the hot utility below the pinch or use the cold utility above the pinch. These rules are valid for both process and utility pinch points. All of the heat transfer categories of \cref{subsec:ExtHexs} can be summarized into P-P, P-U and U-U heat exchangers. The P-P heat exchangers are a part of the heat recovery potential calculated by heat integration. If an existing P-P exchanger does not cross-pinch and is well placed in the system, accepting this exchanger and removing its streams from the system would not affect the operating cost. In case of a penalizing existing P-P exchanger, the imposed penalty can be evaluated as the difference between the operating cost of the system, with and without streams of this exchanger. Regarding the P-U heat exchangers, if they are part of a loop, with intermediate heat transfer fluid carrying heat between process heat sink and source (see \cref{fig6:PUUUexchangers}.a), they are considered and analyzed similarly to the P-P heat exchangers. Otherwise, accepting a well placed P-U exchanger would reduce the operating cost as much as the cost of the utility used in the P-U exchanger. However, in order to guarantee that the utility stream in the exchanger is not different from the optimum choice of the optimization, the exergy losses in the exchanger should also be evaluated. If a U-U exchanger is part of a loop, with intermediate heat transfer fluid carrying heat between process and utility streams (see \cref{fig6:PUUUexchangers}.b), they are considered and analyzed similarly to the P-U heat exchangers. But if a U-U exchanger is not part of a loop nor for a specific process reason, it is a cross-pinch exchanger. 
+
+ 
+ \begin{figure}[!ht]
+     \centering
+     \begin{tabular}{cc}
+        \subfloat[P-U heat exchnagers]{\includegraphics[width=90mm]{images/ch6/P-U-LOOP.pdf}} \\
+        \subfloat[U-U heat exchnagers]{\includegraphics[width=75mm]{images/ch6/U-U-LOOP.pdf}}
+     \end{tabular}
+    \caption{Existing heat exchangers in a loop}
+     \label{fig6:PUUUexchangers}
+ \end{figure}
+ 
+ 
+This analysis can be performed for all the existing heat exchangers by performing a remaining problem analysis. However, the decision made concerning one exchanger will affect the result of the analysis for the rest. So the sequence of the modifications becomes important and we do not necessarily know which sequence leads to the optimum solution in terms of the target. Additionally, among the available heat transfer units of each energy requirement, it is not clear which heat transfer units of each energy requirement have to be modified and thus the optimum retrofit solution.
+
+In order to deal with this problem, all available heat transfer units of each energy requirement are introduced to the optimization problem. Each interface is defined by one energy requirement representation. The process requirement is defined by the thermodynamic representation and the current utility interface is defined by the utility representation. All interfaces interacting between process and utility will be defined by the technology representation. For each requirement, the optimization problem selects the optimum interface with respect to the target. To guarantee the presence of only one interface for each energy requirement at once, a new constraint (\cref{EQ6:constrain}) is added to the MILP formulation. This constraint has been defined with the integer variable that represents the existence of one unit ($y_{u}$). In the original MILP formulation $y_{u}$ has a constant value of 1 for all process units. A new associated integer variable to each representation of a process unit is defined: in case the process unit $u$ takes the representation $r$ ($y_{u,r}=1$) and ($y_{u,r}=0$) otherwise.
+
+\begin{equation}
+\sum_{r=1}^{nr_{u}} y_{u,r}=1  \quad  \quad \forall u=1,...,nu_{p}  \quad \quad  y_{u,r}\in 
+\left\{0,1 \right\}  \quad\quad 
+\label{EQ6:constrain}
+\end{equation} 
+
+ where $nr_{u}$ is the number of representations of the process unit $u$ and $nu_{p}$ is the number of utility-consumer process units with more than one representation. Thermodynamic representation is chosen when the energy requirement is part of the energy saving target and the heat transfer unit has to be modified. Choosing the technology representation means that only heat supply through heat transfer intermediate unit can be modified, but not the process unit itself. When the energy requirement is defined by utility representation, neither the process, nor the utility supply can be modified.  Therefore, including one stream with utility representation means there is no need to modify any of the current heat transfer units of this requirement. 
+
+In addition to the process units that exchange with utility or technology interfaces, some process units are introduced to the problem that belong to the hidden potential of heat transfer, the existing P-P heat exchangers or the non-isothermal mixers categories. These units have only the possibility to be represented by thermodynamic requirement and to evaluate if they are beneficial to be included in the optimum retrofit target, several iterations would be required. To deal with this problem, another constraint (\cref{EQ6:constrain2}) is added to the MILP model for each of those units. This constraint allows to vary the integer variable that represents the existence of the unit ($y_{u}$) from being a part of the model ($y_{u}=1$) to the elimination ($y_{u}=0$).
+
+\begin{equation}
+  y_{u} = y_{u}^{\star }  \quad  \quad \forall u=1,...,nu_{p}^{\star }  \quad \quad  y_{u}^{\star }\in 
+  \left\{0,1 \right\}
+\label{EQ6:constrain2}
+\end{equation}
+
+where $nu_{p}^{\star }$ is the number of process units who belong to the hidden potential of heat transfer, existing P-P heat exchangers or non-isothermal mixers categories and are accordingly represented only through the thermodynamic representation. The binary variable $y_{u}^{\star } $ is defined $(y_{u}^{\star }=1)$ when the unit $u$ is included in the model and has to be modified or $(y_{u}^{\star }=0)$ when unit $u$ is eliminated from the model and is accepted as it is. 
+
+There might be some engineering constraints and physical limits concerning the modification or adding the new heat exchangers. These constraints have also to be added to the optimization problem at the targeting level. The constraints related to the limit on the exchange at certain temperatures are guaranteed by introducing new representation for the limited unit. The forbidden matches can also be considered by using the extension of the MILP formulation for restricted matched proposed by \citet{Becker2012104}. 
+ 
+\subsection{Multi-Objective optimization with multiple representation}
+\label{Sec6:MultiObjOptz}
+
+Apart from securing the optimum solution with respect to the operating cost, the systematic alteration of the heat transfer unit of the energy requirements from one representation to another also leads to a new target retrofit solution. Switching among representations, however, involves the expenses to have the heat exchangers modified. In order to design the proposed retrofit solution, the cost of each modification has to be evaluated. Hence, earlier at the level of targeting, it would be helpful to have an estimation of the units which have to be changed for the optimum retrofit design with respect to both operating and investment cost. For this purpose, a multi-objective optimization with evolutionary algorithm \cite{Molyneaux2010751} is performed by considering both operating and investment cost as targets which would give the optimal Pareto-frontier of solutions. Pareto analysis is practical in our case to identify and characterize interesting regions of the solution space of the trade-off between objectives instead of a single optimal point. Generating a range of $good$ $solutions$ will provide the decision maker options to choose a qualitative solution among the regions returned by the algorithm. Notice that each of these options is identical in terms of the energy balance between the hot and the cold requirement in spite of their different operating and investment costs. The investment cost of the heat exchanger modification is estimated by associating the area of the heat exchanger to its hot and cold stream (\cref{EQ6:equ15}). In order to forward the optimization towards the solutions with less required modification, a systematic weight factor is assigned to each representation to promote the utilization of existing facilities (\cref{EQ6:equ22}). In addition, a pseudo thermal exergy destruction is calculated as an indicator to compare different solutions. 
+
 \subsection{Caste study III: Industrial cluster integration and optimization}
