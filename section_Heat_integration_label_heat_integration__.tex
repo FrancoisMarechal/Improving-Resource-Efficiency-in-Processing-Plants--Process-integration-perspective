@@ -139,9 +139,10 @@ The process heat transfer requirement for a real chemical site is identified usi
         \includegraphics [height=4.3cm]{figures/HeatIntegration/figMERcc.pdf} 
         \includegraphics [height=4.3cm]{figures/HeatIntegration/figMERgcc.pdf}
         \caption{Composite and Grand Composite Curves of the process after heat integration}
+       \label{fig1:mer}
         \end{center}
         \end{figure}
-        \label{fig1:mer}
+ 
         
 
 Based on the result of the GCC and the plus-minus principle \cite{Linnhoff1993503}, the maximum heat recovery can be further improved by either integrating supplementary equipment (like the heat pump) or by modifying process operating conditions (such as modifying the pressure). The analysis of the GCC in Fig. \ref{fig1:mer}b with respect to the condition of this system (streams phase and temperature range) shows that there is a large potential for the Mechanical Vapor Recompression (MVR) or heat pumping (or both). The compression cycles are added to the appropriate place with respect to the pinch point temperature. This procedure is however possible until a new pinch point would be activated. Therefore, in order to increase the MVR potential while avoiding a quick creation of new pinch points, the heat pumping system is additionally proposed to be integrated with the Composite Curves. Considering the interdependency of the different actions, the flow rates and the selection of the most effective actions are obtained by solving an optimization problem. Obviously, we bear in mind that the implementation of every new solution of the system will modify the target. Suitable energy conversion units are now integrated and their optimum flow rate is found by Mixed Integer Linear Programming (MILP) formulation proposed by \citet{marechal1998process}. This formulation helps define the heat cascade of the Pinch Analysis method as a set of inequality constraints. This model selects the equipments in the superstructure and determines their optimal operating flow rate in the integrated system. The objective is then to minimize the operating costs, including the fuel and the electricity. In order to optimize the mass flow rates of the MVR, a new equality constraint is also added to the MILP optimization problem. The optimal integration of MVR and heat pumps is performed simultaneously with the energy conversion units. The Composite Curves of the system with MVR alone and together with the heat pumps are respectively shown in Fig. \ref{fig1:HPmvr}a and b. By adding an MVR unit, the mechanical power is calculated and a new hot stream is implemented. The principle of the calculation for the MVR is also reported in Fig. \ref{fig1:MVR}. In order to create a link between the part which is recompressed and the part used by the direct heat exchange, the equivalent of the expression $\left( \dot{m}_{total}=\dot{m}_{mvr}+\dot{m}_{dhe}\right) $ is added to the MILP problem as a new constraint \cite{EPFL-ARTICLE-163637}.
@@ -158,7 +159,7 @@ Based on the result of the GCC and the plus-minus principle \cite{Linnhoff199350
       \end{center}
       \end{figure}
       
-      \begin{figure}[h]
+ \begin{figure}[h]
  \begin{center}
  \includegraphics [width=80mm]{figures/HeatIntegration/MVR.pdf}
  \caption{Principle of the MVR integration}
