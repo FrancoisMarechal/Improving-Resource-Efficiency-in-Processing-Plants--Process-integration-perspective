@@ -119,7 +119,7 @@ As the first step, the heat cascade is solved and the minimum energy requirement
 \vspace{6mm}
         \end{table}
  
- The summary of the result is presented in \cref{tab6:one}. The value of reported thermal exergy destruction is the area between process and utility curves in the Carnot representation (\cref{fig6:MILP2nd}) that specifies the exergy losses in the heat transfer system \cite{marechal2005combined}. The multi-objective optimization with four objective functions of the operating cost, the investment cost, the priority and the pseudo thermal exergy destruction has been performed for the scenario I by varying the streams over different representations. 133 out of 141 units of the site, can be modified and switched from one interface to another one. The 8 others were mandatory to remain unchanged. In the existing facilities of this site, in addition to the thermodynamic and utility interfaces, there exist 9 different technology interfaces. The priority level assignment and the calculated weight factor for these interfaces are summarized in \cref{tab6:three}. As it is dissuaded, here the existing situation for all 42 units belonging to the P-P heat exchangers, the non-isothermal mixers and the hidden potential categories have been considered as a utility representation for the weight factor calculation.  
+ The summary of the result is presented in \cref{tab6:one}. The value of reported thermal exergy destruction is the area between process and utility curves in the Carnot representation (\cref{fig6:MILP2nd}) that specifies the exergy losses in the heat transfer system \cite{marechal2005combined}. The multi-objective optimization with four objective functions of the operating cost, the investment cost, the priority and the pseudo thermal exergy destruction has been performed for the scenario I by varying the streams over different representations. 133 out of 141 units of the site, can be modified and switched from one interface to another one. The 8 others were mandatory to remain unchanged. In the existing facilities of this site, in addition to the thermodynamic and utility interfaces, there exist 9 different technology interfaces. 
 
  \begin{figure}[!ht]
  \begin{center}
@@ -130,32 +130,6 @@ As the first step, the heat cascade is solved and the minimum energy requirement
  \end{center}
  \end{figure}
  
-\begin{table}[!ht] 
-  \caption{Summary of the priority levels assignment}  \vspace*{-2mm}
-     \label{tab6:three} 
-  \begin{center}
-\resizebox{10cm}{!} {
-\begin{tabular} {>{\centering\arraybackslash} m{3.5cm} >{\centering\arraybackslash}  m{3.1cm} >{\centering\arraybackslash} m{1.7cm} >{\centering\arraybackslash}  m{1.7cm} >{\centering\arraybackslash}  m{2cm } >{\centering} *{5}{c}  }
-\noalign{\hrule height 0.06cm}
-\noalign{\smallskip}
- \textbf{Representation level (r)} & \textbf{Representation Type }& \textbf{$P_{r}$} & \textbf{$Z_{r}$} & \textbf{$W_{r}$} \\ [0.1cm]
-\hline
-\vspace*{2mm} \textbf{1}  & \vspace*{2mm} Thermodynamic & \vspace*{2mm} 1 & \vspace*{2mm} 133 & \vspace*{2mm} 1 \\ [0.1cm]
-\textbf{2}  & Technology & 2 & 7 &  1.34*$10^{2} $  \\ [0.1cm]
-\textbf{3}  & Technology & 3 & 1 & 1.07*$10^{3}$ \\ [0.1cm]
-\textbf{4}  & Technology & 4 & 1 & 2.14*$10^{3}$ \\ [0.1cm]
-\textbf{5}  & Technology & 5 & 14  & 4.29 *$10^{3}$ \\ [0.1cm]
-\textbf{6}  & Technology & 6 & 15  & 6.43*$10^{4}$ \\ [0.1cm]
-\textbf{7}  & Technology & 7 & 4  & 1.03*$10^{6}$ \\ [0.1cm]
-\textbf{8}  & Technology & 8 & 20 & 5.15*$10^{6}$ \\ [0.1cm]
-\textbf{9}  & Technology & 9 & 5  & 1.08*$10^{8}$ \\ [0.1cm]
-\textbf{10}  & Technology & 10 & 6 & 6.48*$10^{8}$ \\ [0.1cm]
-\textbf{11}  & Utility & 11 & 133  &  4.54*$10^{9}$ \\ [0.1cm]
-\noalign{\hrule height 0.06cm} 
-\end{tabular}}
-\vspace*{0mm}
-       \end{center}
-        \end{table}
 
 The Pareto analysis has been performed by selecting the optimal Pareto-frontier of all four objectives and is displayed in the 3D format with respect to the investment cost, the operating cost and the number of modifications in \cref{fig6:multiobj}a. The projection of this frontier on the respective planes gives the 2D trade-off which has been reproduced in \cref{fig6:multiobj}b and c. \cref{fig6:multiobj}b illustrates the trade-off between the operating cost and the investment cost. The point 1 is the optimum solution to the MILP optimization problem where all requirements are exclusively supposed to be of the detailed representation type and the point 2 is the optimum solution for a system allowing for the multiple representation of energy requirements with only the operating cost as objective function. Each point of this region presents a retrofit solution which includes the information concerning the heat transfer unit of each energy requirement that need to be modified. The Pareto curve analysis shows that among the solutions with the same operating cost, one can be found by the help of the multiple representation approach, which requires less investment cost compared to the results obtained by the unique representation approach. The selected solution of the above optimization problem is then the target for a reduced HEN design problem which is limited to the number of units which would require modification. \cref{fig6:multiobj}b plots the number of units that requires modification with respect to the operating cost. This curve allows the engineer to determine which and how many units are required to be modified for any target solution.
  
