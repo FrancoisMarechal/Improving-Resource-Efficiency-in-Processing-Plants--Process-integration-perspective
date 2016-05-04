@@ -1,16 +1,11 @@
 \section{Energy integration}
 
 
-Nasibeh use cetow for heat puming solutions and st fons for large scale integration and combined heat and power production. We have to use neutralised values (i.e. we start with 100 unit and end up with 46.
+%Nasibeh use cetow for heat puming solutions and st fons for large scale integration and combined heat and power production. We have to use neutralised values (i.e. we start with 100 unit and end up with 46.
 
 
-Converting energy resources into useful energy, exergy efficiency, heat pumping and combined heat and power => examples from the papers of Nasibeh
+%Converting energy resources into useful energy, exergy efficiency, heat pumping and combined heat and power => examples from the papers of Nasibeh
 
-adding a citation \cite{Pouransari_2014}
-
-
-
-**************
 \subsection{Multi-level energy requirement definition}
 \label{subsec:Multi-layer}
 The necessary data for the energy requirement analysis are the heating or cooling enthalpy demand $(\dot{Q})$, and the inlet and outlet temperature $ (T) $ of the PUOs. In energy analysis, these requirements are defined as the Temperature-Enthalpy (T-H) profiles for each of those process units. Based on the energy requirement definition, the data extraction can be categorized into five levels, with the following description. (see \cref{tab2:table0})
@@ -27,6 +22,52 @@ The necessary data for the energy requirement analysis are the heating or coolin
     \item \textbf{Detailed-model analysis:}
     	In the last level of analysis, all necessary detailed process information is extracted to define the T-H profiles of requirements from their corresponding process data using advanced simulation tool. The non-linear T-H profiles of streams with variable specific heat ($C_{p}$) are recognizable at this level.
 \end{itemize}
+
+
+
+\definecolor{bell1}{RGB}{77,77,77}
+\definecolor{bell2}{RGB}{153,153,153}
+\definecolor{bell3}{RGB}{230,230,230}
+
+\begin{table*}[h] 
+\caption{Multi-Level data extraction \cite{pouransari2014}}
+\label{tab2:table0} \vspace*{-2mm}
+\begin{center}
+\resizebox{\textwidth}{!}
+{
+$\rotatebox[origin=t]{270}{\textbf{Top-Down analysis}}%
+%LEFTARROW--------------------------------------------------
+\hspace{0.3cm}\raisebox{-2.5cm}{\begin{tikzpicture}[>=latex]
+\draw[<-,black,line width=0.07cm] (0,-4.95) -- (0,0);
+\end{tikzpicture}}
+%LEFTARROW--------------------------------------------------
+%\left\downarrow% Use `\left.` if don't want arrow on this side.
+\resizebox{14cm}{!} {
+\hspace{0.3cm}\begin{tabular} { >{\centering} m{1.3cm} >{\centering}  m{1.7cm} >{\centering} m{1.7cm} >{\centering} m{1.9cm} >{\centering} m{3.8cm} >{\centering} m{3.2cm} >{\centering\arraybackslash} m{4.2cm} }
+\noalign{\hrule height 0.08cm}
+ \vspace*{1mm} {\textbf{Level}} &\vspace*{1mm} \textbf{$T$ } & \vspace*{1mm}\textbf{$\dot{Q}$} & \vspace*{1mm}\textbf{P-P HEXs } & \vspace*{1mm}\textbf{Non-Isothermal mixers \& reactors } & \vspace*{1mm}\textbf{Analysis Type } & \vspace*{1mm}\textbf{Energy requirement representation } \\ [0.1cm]
+\hline \vspace*{2mm}
+1 & \vspace*{1mm} Utility & \vspace*{1mm} Utility& \vspace*{1mm} $\boldsymbol{\timesbig}$  & \vspace*{1mm} $\boldsymbol{\timesbig}$ & \vspace*{1 mm}  \cellcolor{black} \textbf{\textcolor{white}{Black-Box}}  & \vspace*{5 mm}  Utility \\  [0.3 cm]
+& & & & & \\  [-0.35cm]
+2  &  Process & Utility& $\boldsymbol{\timesbig }$  & $\boldsymbol{\timesbig}$ & \cellcolor{bell1} \textbf{\textcolor{white}{ Grey-Box}}  & Technology, Thermodynamic   \\ [0.1cm]
+& & & & & \\  [-0.35cm]
+3  & Process & Utility & $\boldsymbol{\checkmarkbig}$ & $\boldsymbol{\timesbig}$ & \cellcolor{bell2} White-Box (Deatiled-Pinch)  & Technology, Thermodynamic    \\ [0.1cm]
+& & & & & \\  [-0.35cm]
+4  & Process & Utility & $\boldsymbol{\checkmarkbig}$ & $\boldsymbol{\checkmarkbig}$ & \cellcolor{bell3} Simple-Model  & Technology, Thermodynamic   \\ [0.1cm]
+& & & & & \\  [-0.35cm]
+5  & Process& Process & $\boldsymbol{\checkmarkbig}$ & $\boldsymbol{\checkmarkbig}$ &  Detailed-Model & Technology, Thermodynamic   \\ [0.1cm]
+\noalign{\hrule height 0.08cm}
+\end{tabular}}
+%\right\Uparrow %  Use `\right.` if don't want arrow on this side.
+%RIGHTARROW--------------------------------------------------
+\hspace*{0.3cm}\raisebox{-2.5cm}{\begin{tikzpicture}[>=latex]
+\draw[<-,black,line width=0.07cm] (0,0) -- (0,-4.95);
+\end{tikzpicture}}
+%RIGHTARROW--------------------------------------------------
+\hspace{0.3cm}\rotatebox[origin=b]{90}{\textbf{Bottom-Up analysis}}$
+}
+\end{center}
+\end{table*}
 
 \subsection{Multiple representation of the same energy requirement}
 \label{subsec2:Multi-rep}
