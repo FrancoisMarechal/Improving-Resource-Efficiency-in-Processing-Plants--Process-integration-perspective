@@ -11,7 +11,42 @@ adding a citation \cite{Pouransari_2014}
 
 
 **************
+\subsection{Multi-level energy requirement definition}
+\label{subsec:Multi-layer}
+The necessary data for the energy requirement analysis are the heating or cooling enthalpy demand $(\dot{Q})$, and the inlet and outlet temperature $ (T) $ of the PUOs. In energy analysis, these requirements are defined as the Temperature-Enthalpy (T-H) profiles for each of those process units. Based on the energy requirement definition, the data extraction can be categorized into five levels, with the following description. (see \cref{tab2:table0})
 
+\begin{mylist2}
+	\item \textbf{Black-box analysis:}
+        It considers the global view of the site where the result comes from the analysis of the current energy bill of the plant. In this level, the process-utility heat transfer units are considered from their utility interface so that both the temperature and the heat load of the energy requirements is represented by their corresponding utility data.
+    \item \textbf{Grey-box analysis:}
+        This analysis updates the temperature level of the energy requirements to its corresponding process data by considering the process interface of the process-utility heat transfer unit. At this level, all the process-process (P-P) heat exchangers are accepted as their existing configuration. This is the typical level of data extraction in Total Site Analysis.
+    \item \textbf{White-box analysis:}
+         In this third level, in addition to the previous features, the process-process heat transfer units are also considered. 
+    \item \textbf{Simple-model analysis:}
+    	In this level, the analysis is additionally performed for non-isothermal mixers and reactors (including the streams that leave or enter into the system with the potential of heat recovery) based on the simple model. 
+    \item \textbf{Detailed-model analysis:}
+    	In the last level of analysis, all necessary detailed process information is extracted to define the T-H profiles of requirements from their corresponding process data using advanced simulation tool. The non-linear T-H profiles of streams with variable specific heat ($C_{p}$) are recognizable at this level.
+\end{mylist2}
+
+\subsection{Multiple representation of the same energy requirement}
+\label{subsec2:Multi-rep}
+
+In the process analysis methodology of \citet{brown2005dual}, \citet{muller2007energy} and then in \citet{Perin-Levasseur2009}, the energy requirement of each process unit is classified into three representations: \textbf{\textit{utility}}, \textbf{\textit{technology}} and \textbf{\textit{thermodynamic}} representation. The utility requirement would take the energy requirement of a unit equivalent to the production of the distributed energy used in the unit. Thus, the sum of the utility requirements defines the steam consumption of the factory. In this case neither the process nor the utility supply can be modified. Therefore, including one stream with utility representation means there is no need to modify the current heat exchangers serve for the same heat demand related to that stream. The technology requirement can be defined by the heat exchange interface between the technology that realizes the unit operation and the distributed energy. It represents the T-H profile required by the process streams in existing heat exchangers. With technology representation only heat supply through the heat transfer unit can be modified, but not the process unit itself. The thermodynamic requirement corresponds to the heat transfer required to perform a unit operation. The definition results from the analysis of the thermo-chemical and physical transformations to be realized in the PUO. The thermodynamic requirement describes the necessary thermodynamic transformations in the operation and defines the lowest temperature profile for the cold stream and the highest temperature profile for the hot stream. This representation is chosen when the process and the heat supply can be modified. With the assumption of no heat losses, the representations are characterized by the same amount of the heat, but with different temperature profiles. They have the same energy content but a  different exergy content.  In the context of process integration, the exergy concept is combined with the pinch analysis to reduce the energy requirement of the process \cite{LENI-ARTICLE-1996-002}. Here, the exergy concept has been applied to differentiate the heat transfer units that serve for the same energy requirement. Now we make the link between the two concepts: each of the five mentioned data extraction levels can be explained by one or two representation types, which is summarized in the right side of the \cref{tab2:table0}. The black-box level corresponds to the utility representation. The grey-box to the simple-model levels correspond to the technology or the thermodynamic representation and the detailed-model level defines the thermodynamic requirement of the PUOs. 
+
+\begin{figure*}[!ht]
+ \centering
+  \begin{tabular}{c}
+ 	\subfloat[Process unit]{\includegraphics[width=60mm]{images/ch2/triplereptop.pdf}} \\
+ 	\subfloat[Triple representation]{\includegraphics[width=146mm]{images/ch2/triplerepbot.pdf}} 	
+\end{tabular}
+\caption{Triple representation of the same energy requirement  \cite{Muller3785THESES}}
+\label{fig2:triple}
+\vspace{-5mm}
+\end{figure*}
+
+
+\cref{fig2:triple} shows an example of the triple representation for a heat requirement of a process unit. Hot water receives the heat requirement from the steam and delivers it to the process. The condensate receives the same amount of heat from combusted gases in the boiler to become steam. The exergy losses can be visualized in \cref{fig2:triple}b at the right hand side, using the Carnot Composite Curves \cite{LENI-ARTICLE-1996-002}.
+ 
 \subsection{Caste study I: Energy integration technologies}
 
 The process heat transfer requirement for a real chemical site is identified using the data collected from different sources including energy conversion, distribution or process units. The heating and cooling requirements have been consequently determined. Based on the heating and cooling requirement definition, the Composite and the Grand Composite Curves are generated in \cref{fig1:mer}. It should be noticed that while defining the energy requirements, we have introduced the streams with the highest possible degree of freedom in order to target the greatest scope for improvement. An individual $\Delta T_{min}$ contribution is considered for each stream by adopting the typical value calculated from a predefined heat exchanger with the film heat transfer coefficient of each fluid at its relevant physical state. The Maximum Energy Recovery (MER) is then determined for the given $\Delta T_{min}$ and is considered as an initial target for heat recovery. \cref{fig1:mer}a shows the maximum heat recovery, the hot and the cold MER. The total heat requirement of the site is considered as the basis of 100\% unit here, and all the integration analysis values are based on this reference. In this case, there is a 54\% potential of integration (from the total heating requirement) compared to 40\% of integration in the current process which corresponds to the first ideal target.
