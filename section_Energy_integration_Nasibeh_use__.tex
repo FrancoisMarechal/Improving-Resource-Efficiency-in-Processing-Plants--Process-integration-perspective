@@ -46,47 +46,16 @@ In the process analysis methodology of \citet{brown2005dual}, \citet{muller2007e
 
 
 \cref{fig2:triple} shows an example of the triple representation for a heat requirement of a process unit. Hot water receives the heat requirement from the steam and delivers it to the process. The condensate receives the same amount of heat from combusted gases in the boiler to become steam. The exergy losses can be visualized in \cref{fig2:triple}b at the right hand side, using the Carnot Composite Curves \cite{LENI-ARTICLE-1996-002}.
- 
-\subsection{Caste study I: Energy integration technologies}
 
-The process heat transfer requirement for a real chemical site is identified using the data collected from different sources including energy conversion, distribution or process units. The heating and cooling requirements have been consequently determined. Based on the heating and cooling requirement definition, the Composite and the Grand Composite Curves are generated in \cref{fig1:mer}. It should be noticed that while defining the energy requirements, we have introduced the streams with the highest possible degree of freedom in order to target the greatest scope for improvement. An individual $\Delta T_{min}$ contribution is considered for each stream by adopting the typical value calculated from a predefined heat exchanger with the film heat transfer coefficient of each fluid at its relevant physical state. The Maximum Energy Recovery (MER) is then determined for the given $\Delta T_{min}$ and is considered as an initial target for heat recovery. \cref{fig1:mer}a shows the maximum heat recovery, the hot and the cold MER. The total heat requirement of the site is considered as the basis of 100\% unit here, and all the integration analysis values are based on this reference. In this case, there is a 54\% potential of integration (from the total heating requirement) compared to 40\% of integration in the current process which corresponds to the first ideal target.
+\subparagraph{Site scale integration}
+A large industrial process system can be analyzed by either \textit{Single Process Integration} (SPI) or through the \textit{Total Site Integration} (TSI). Both SPI and TSI lay on the same line in terms of approach, but in TSI the opportunity of heat recovery between the process systems is considered rather for the whole site than for each process system separately (SPI). In other words, the process systems in SPI are considered as restricted matches since no heat recovery between the process systems has been considered. We expect therefore that the TSI raises considerably higher potentials of energy saving than the SPI since there is an additional potential of integration between different plants. However, SPI has also its own advantages: it is much easier to implement and would impose less investment cost since it discourages the long-distance connection between different plants. As discussed in \cref{chap2} one of the preliminary challenges faced for total site heat integration is data extraction. A multi-level data extraction has been accordingly introduced in \cref{chap2} based on the different levels of energy requirement analysis to tackle this complexity. A similar idea can also be extended and applied on TSI. This time it would be each process system introduced with a different energy requirement representation, depending on the most detail accessible level of data for that specific process system. Consequently, the TSI could be performed now with a combination of different levels of energy requirement. 
 
-
-        \begin{figure}[h]
-        \begin{center}
-        \includegraphics [height=4.3cm]{figures/EnergyIntegration/figMERcc.pdf} 
-        \includegraphics [height=4.3cm]{figures/EnergyIntegration/figMERgcc.pdf}
-        \caption{Composite and Grand Composite Curves of the process after heat integration}
-        \label{fig1:mer}
-        \end{center}
-        \end{figure}
-        
-
-Based on the result of the GCC and the plus-minus principle \cite{Linnhoff1993503}, the maximum heat recovery can be further improved by either integrating supplementary equipment (like the heat pump) or by modifying process operating conditions (such as modifying the pressure). The analysis of the GCC in \cref{fig1:mer}b with respect to the condition of this system (streams phase and temperature range) shows that there is a large potential for the Mechanical Vapor Recompression (MVR) or heat pumping (or both). The compression cycles are added to the appropriate place with respect to the pinch point temperature. This procedure is however possible until a new pinch point would be activated. Therefore, in order to increase the MVR potential while avoiding a quick creation of new pinch points, the heat pumping system is additionally proposed to be integrated with the Composite Curves. Considering the interdependency of the different actions, the flow rates and the selection of the most effective actions are obtained by solving an optimization problem. Obviously, we bear in mind that the implementation of every new solution of the system will modify the target. Suitable energy conversion units are now integrated and their optimum flow rate is found by Mixed Integer Linear Programming (MILP) formulation proposed by \citet{marechal1998process}. This formulation helps define the heat cascade of the Pinch Analysis method as a set of inequality constraints. This model selects the equipments in the superstructure and determines their optimal operating flow rate in the integrated system. The objective is then to minimize the operating costs, including the fuel and the electricity. In order to optimize the mass flow rates of the MVR, a new equality constraint is also added to the MILP optimization problem. The optimal integration of MVR and heat pumps is performed simultaneously with the energy conversion units. The Composite Curves of the system with MVR alone and together with the heat pumps are respectively shown in \cref{fig1:HPmvr}a and b. By adding an MVR unit, the mechanical power is calculated and a new hot stream is implemented. The principle of the calculation for the MVR is also reported in \cref{fig1:MVR}. In order to create a link between the part which is recompressed and the part used by the direct heat exchange, the equivalent of the expression $\left( \dot{m}_{total}=\dot{m}_{mvr}+\dot{m}_{dhe}\right) $ is added to the MILP problem as a new constraint \cite{EPFL-ARTICLE-163637}.
+\section{Improving the Heat recovery targets}
+\label{sec:TSIheatrecovery}
+As discussed in \cref{chap1}, leveraging the useful insight from the GCC of the site, it is possible to further improve the first ideal target defined by MER. These improvements could be achieved by applying the plus-minus principle \cite{umeda1979thermodynamic,linnhoff1984heat} which acts by relocating the heat transfer requirement across the pinch. One possible way to apply the plus-minus principle would be through the process modification such as the pressure increase of a unit with the hot stream below pinch or through the pressure decrease for a unit with the cold stream above the pinch. This would be particularly practical when fluid phase change occurs near the pinch like in distillation columns. However, the variation of pressure in an existing unit could be limited by product quality or process/technology specification. The relocation of the streams can also be performed without process operating condition modification. It can be effectively achieved by integration of new technologies such as the Heat Pump (HP) or the Mechanical Vapor Recompression (MVR). The available industrial HPs in the market come with the maximum evaporation temperature of around 100 $^{\circ}\mathrm{C}$ while the MVR can attain higher temperatures as they use the process fluid directly in their cycle. The temperature constraint however can be released by using the water as the working fluid. The mentioned improvement options (pressure change, use of heat pump or MVR) are well established and has been used in several industrial companies. In addition to these modifications, another alternative would be the application of new technologies for step-change such as the Dividing-Wall Column. The latter option worths a careful analysis since the separation units have been frequently reported being among the major consumers which can lead to exploring more improvement options. Thus separation unit would be investigated comprehensively in \cref{chap4}. All the modifications have to be integrated and optimized together with the energy conversion units.
+As a general guideline, it is fundamental to re-verify the energy requirement definition of major consumers, the streams that have created the pinch points and the streams at sharp edges which have the potential to create new pinches, in order to ensure that the energy saving options will not be missed, since in the improvement analyses the pinch point is the key driver for identifying profitable modifications.
 
 
-      \begin{figure}[h]
-      \begin{center}
-      \begin{tabular}{cc}
-        \subfloat[With MVR]{\includegraphics [height=4cm]{figures/EnergyIntegration/HPmvr_mvralone.pdf}} & 
-        \subfloat[With MVR and HP]{\includegraphics [height=4cm]{figures/EnergyIntegration/HPmvr_mvrhp.pdf}}
-       \end{tabular}
-      \caption{Composite Curves after improvement potentials}
-      \label{fig1:HPmvr}
-      \end{center}
-      \end{figure}
-      
-      \begin{figure}[h]
- \begin{center}
- \includegraphics [width=80mm]{images/ch1/MVR.pdf}
- \caption{Principle of the MVR integration}
- \label{fig1:MVR}
- \end{center}
- \end{figure}
- 
- Adding an MVR unit to transfer the heat from below to above of the pinch, results in the 11\% further improvement of the heat recovery potential (from 54\% in case of the process integration alone to 65\% in case MVR integrated) at the expense of 2\% mechanical power which corresponds to a COP of 5.5. Considering the newly activated pinch points in \cref{fig1:HPmvr}a, additional heat pumps are also added to system in \cref{fig1:HPmvr}b in order to further increase the heat recovery potential up to 86\%. This results to 32\% additional heat recovery than the original heat integration opportunities including 4\% of mechanical power requirement. This corresponds to a COP of 8. With the three ideal targets shown here, the overall evaluated energy savings could be between 20\% - 45\% approximately.
-          
-**************
 
 \subsection{Caste study II: Site-Scale integration}
 
