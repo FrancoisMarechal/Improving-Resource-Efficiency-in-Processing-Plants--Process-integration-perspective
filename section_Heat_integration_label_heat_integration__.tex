@@ -110,12 +110,6 @@ The nomenclature for the electricity formulation can be easily understood knowin
 
 The optimisation is able to vary the scaling factor of each unit such that a feasible solution of supply/demand for the whole system is satisfied. Unit sizes are adjusted by manipulating the linear scaling factor $f_u$ such that the requirements are fulfilled. Units with fixed output have the scaling factor set to unity which applies to cases where the production volume is known (e.g. 560 t/h of pasteurised milk). For units lacking a fixed output such as boilers supplying steam or cooling circuits, the scaling factor is within a range of values from the lower limit $f_{u}^{L}$ to the upper limit $f_{u}^{U}$. The existence of any unit is expressed using a binary decision variable represented in this formulation as $y_u$. The relationship and linking constraints for the size and existence of a unit is constructed as shown in \ref{eq:mult-max}.
 
-\begin{equation}
-\label{eq:mult-max}
-\boldsymbol {y_{u}} \cdot f_{u}^{L} \leq \boldsymbol {f_{u}} \leq \boldsymbol {y_{u}} \cdot f_{u}^{U}
-\end{equation}
-
-
 
 \begin{equation}
  \label{eq:heat-cascade}
