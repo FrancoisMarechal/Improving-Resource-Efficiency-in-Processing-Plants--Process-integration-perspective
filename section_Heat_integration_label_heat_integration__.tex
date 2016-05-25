@@ -88,6 +88,7 @@ The graphical formulation of the process heat requirements and the intra-process
 F_{obj} = min (d \cdot (\sum_{f=1}^{nf} (c_{f}^+  \sum_{u=1}^{nu} \boldsymbol{f_u} \dot{E}_{f,u}^+) + c_{el}^{+} \boldsymbol{\dot{E}_{el}^+} - c_{el}^{-} \boldsymbol{\dot{E}_{el}^-} +  \sum_{u=1}^{nu} \boldsymbol {f_u} c_{u} )) 
 \end{equation}
 
+Electricity, in this formulation, must be considered in several parts to represent the import, export and electricity requirements of the process. Equation \ref{eq:elec-cons} stipulates that the electricity required by the process must be satisfied by the production of electricity inside the plant and the import of external electricity. The electrical consumption of the system must also interact with an electricity balance which ensures that import, export and production of electricity are appropriately balanced, as formulated in Equation \ref{eq:elec-exp}. The equation is necessary to ensure that proper electricity accounting is completed for the plant and can also be seen as an electricity balance constraint where the slack variable is the import of electricity into the system boundary.
    
 \begin{equation}\label{eq:elec-cons}
 \sum_{u=1}^{nu} \boldsymbol {f_{u}} \dot{E}_{el,u}^+ + \boldsymbol {\dot{E}_{el}^+} - \sum_{u=1}^{nu} \boldsymbol {f_{u}} \dot{E}_{el,u}^- \geq 0
@@ -98,6 +99,7 @@ F_{obj} = min (d \cdot (\sum_{f=1}^{nf} (c_{f}^+  \sum_{u=1}^{nu} \boldsymbol{f_
 \sum_{u=1}^{nu} \boldsymbol {f_{u}} \dot{E}_{el,u}^+ + \boldsymbol {\dot{E}_{el}^+} - \boldsymbol {\dot{E}_{el}^-} - \sum_{u=1}^{nu} \boldsymbol {f_{u}} \dot{E}_{el,u}^- = 0
 \end{equation}
 
+The non-negativity of the export electricity must also be applied for a correct formulation, included here as Equation \ref{eq:elec-constraints}.
 
 \begin{equation}
 \label{eq:elec-constraints}
