@@ -115,13 +115,15 @@ The optimisation is able to vary the scaling factor of each unit such that a fea
 \boldsymbol {y_u} \cdot f_{u}^L \leq \boldsymbol {f_u} \leq \boldsymbol {y_u} \cdot f_u^U  ~~~~~ \boldsymbol{y_u} \in \{0,1\}
 \end{equation}
 
+The heat cascade for the plant is then formulated based on the corrected temperature intervals for the hot and hold streams. A set of temperature intervals, $k$, is defined to reflect those represented in the process corresponding to unit $u$. The hot and cold streams are also formulated as sets $h$/$c$ and thus any heat load can be represented by $\dot{Q}_{h/c,k,u}$. This additionally requires the formulation of the cascaded heat from any temperature interval, $k$, to the lower temperature intervals which will be represented as $R_k$ in Equation \ref{eq:heat-cascade}.
+
 \begin{equation}
  \label{eq:heat-cascade}
 \sum_{h_k=1}^{ns_{h,k}}{\boldsymbol {f_u} \dot{Q}_{h,k,u}} - \sum_{c_k=1}^{ns_{c,k}}{\boldsymbol {f_u} \dot{Q}_{c,k,u} } +\boldsymbol {\dot{R}_{k+1}}  -\boldsymbol {\dot{R}_{k}}   = 0
 ~~~\forall k=1...,nk
 \end{equation}
 
-
+The constraints on the heat cascade are described in Equation \ref{eq:Rk-constraints} and set the boundaries that cannot cascade from the lowest level nor is heat cascaded to the highest level and also a non-negativity constraint for the cascaded heat. 
 
 \begin{equation}
 \label{eq:Rk-constraints}
